@@ -6,8 +6,8 @@ const temp = document.querySelector('#temp');
 const date = document.querySelector('#date');
 async function getWeatherData(location){
   try {
-    let response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`);
-    // let response = await fetch('http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=fdd75beff106b9a3c8672033aa3f2045')
+    let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`);
+    // let response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=fdd75beff106b9a3c8672033aa3f2045')
     let res = await response.json();
     console.log(res);
     if (res.cod == 200){
@@ -26,7 +26,7 @@ async function getWeatherData(location){
 function processJSON(data){
   let weather = data.weather[0].description;
   changeBackground(weather);
-  weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   const weatherObject = {
     weather: weather,
     temp: data.main.temp,
