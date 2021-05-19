@@ -7,7 +7,6 @@ const date = document.querySelector('#date');
 async function getWeatherData(location){
   try {
     let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`);
-    // let response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=fdd75beff106b9a3c8672033aa3f2045')
     let res = await response.json();
     console.log(res);
     if (res.cod == 200){
@@ -84,17 +83,3 @@ form.addEventListener('submit', function(event){
 });
 
 getWeatherData('Moscow');
-
-
-// Adding gif according to description of the weather
-// const img = document.querySelector('img');
-
-// async function getGif(keyword){
-//   try{
-//     let response = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=gOm9XICC970JV7EmPSd7j7OFFKRMDZNg&s='+keyword);
-//     let result = await response.json();
-//     img.src = result.data.images.original.url;
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// }
