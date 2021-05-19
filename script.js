@@ -1,4 +1,4 @@
-let apiKey = 'fdd75beff106b9a3c8672033aa3f2045';
+let apiKey = config.KEY;
 const weatherIcon = document.querySelector('#weather-icon');
 const cityDisplay = document.querySelector('#city-display');
 const container = document.querySelector('#container');
@@ -23,7 +23,7 @@ async function getWeatherData(location){
   }
 }
 function processJSON(data){
-  let weather = data.weather[0].description;
+  let weather = data.weather[0].main;
   changeBackground(weather);
   weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   const weatherObject = {
@@ -41,17 +41,17 @@ function processJSON(data){
 function changeBackground(weather){
   let result;
   switch (weather) {
-    case 'clear sky':
+    case 'Clear':
       result = 'clear-sky';
       break;
-    case 'rain':
+    case 'Rain':
+    case 'Drizzle':
       result = 'little-rain';
       break;
-    case 'shower rain':
-    case 'thunderstorm':
+    case 'Thunderstorm':
       result = 'heavy-rain';
       break;
-    case 'snow':
+    case 'Snow':
       result = 'snow';
       break;
     default:
