@@ -1,4 +1,4 @@
-let apiKey = config.KEY;
+let apiKey = 'fdd75beff106b9a3c8672033aa3f2045';
 const weatherIcon = document.querySelector('#weather-icon');
 const cityDisplay = document.querySelector('#city-display');
 const container = document.querySelector('#container');
